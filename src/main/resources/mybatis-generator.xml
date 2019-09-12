@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="application.properties"></properties>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--去除注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.turing.website.bean" targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.turing.website.dao"  targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="tbl_member_information" schema="root" domainObjectName="Member">
+            <generatedKey column="m_id" sqlStatement="JDBC"/>
+        </table>
+<!--        <table tableName="tbl_announcement" schema="root" domainObjectName="Announcement">-->
+<!--            <generatedKey column="announcement_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_award" schema="root" domainObjectName="Award">-->
+<!--            <generatedKey column="award_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_award_pirture" schema="root" domainObjectName="AwardPirture">-->
+<!--            <generatedKey column="ap_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_history" schema="root" domainObjectName="History">-->
+<!--            <generatedKey column="history_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_life" schema="root" domainObjectName="Life">-->
+<!--            <generatedKey column="life_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_life_pirture" schema="root" domainObjectName="LifePirture">-->
+<!--            <generatedKey column="lp_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_member_role" schema="root" domainObjectName="MemberRole">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_project" schema="root" domainObjectName="Project">-->
+<!--            <generatedKey column="project_id_" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_project_pirture" schema="root" domainObjectName="ProjectPirture">-->
+<!--            <generatedKey column="pp_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_resume" schema="root" domainObjectName="Resume">-->
+<!--            <generatedKey column="resume_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_role" schema="root" domainObjectName="Role">-->
+<!--            <generatedKey column="role_id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+<!--        <table tableName="tbl_member_role" schema="root" domainObjectName="MemberRole">-->
+<!--            <generatedKey column="id" sqlStatement="JBDC"/>-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>
